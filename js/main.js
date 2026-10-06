@@ -21,7 +21,7 @@ const errorList = document.querySelector("#errorlist");
 const historySection = document.querySelector("#history");
 const deleteHistoryButton = document.querySelector("#delete");
 
-const errorsEl = document.createElement("ul");
+
 
 // Array som används för felmeddelanden
 let errors = [];
@@ -42,6 +42,10 @@ function validateForm(event) {
 
     //Variabel som håller koll på eventuella fel
     let validate = true;
+    
+    //Rensar gmla felmeddelanden
+    errors = []
+    errorList.innerHTML ="";
 
     //Läser in värden från formuläret
     const name = fullnameInput.value.trim();
@@ -64,17 +68,13 @@ function validateForm(event) {
         errors.push("Ange ett telefonnummer")
         validate = false;
     }
-console.log(errors.length);
 
-    //Rensar gamla felmeddelanden
-    errorsEl.innerHTML ="";
     // Visa eventuella felmeddelanden
     if (errors.length > 0){
         for(let i = 0; i < errors.length; i++){
             const liEl = document.createElement("li");
             liEl.innerHTML = errors[i];
-            errorsEl.appendChild(liEl)
-
+            errorList.appendChild(liEl);
         }
     }
 
