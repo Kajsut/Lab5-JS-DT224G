@@ -28,11 +28,16 @@ let errors = [];
 // Array som innehåller sparade studentkort
 let history = [];
 
+//Reagrar på skickaknappen
+form.addEventListener("submit", validateForm)
+
 /**
  * Validerar formulärets inmatning.
  * @returns {boolean}
  */
-function validateForm() {
+function validateForm(event) {
+    event.preventDefault(); // Förhindra att formuläret skickas
+    alert("Validerar formulär...");
     // Kontrollera formulärets obligatoriska fält
 
     // Visa eventuella felmeddelanden
