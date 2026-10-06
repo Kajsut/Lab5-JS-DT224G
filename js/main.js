@@ -94,8 +94,9 @@ function displayErrors() {
 /**
  * Skapar ett studentkort och visar det på sidan.
  */
-function createStudentCard() {
+function createStudentCard(name, email, phone) {
     // Hämta information från formuläret
+    const font = fontSelect.value;
 
     // Uppdatera studentkortet
 
