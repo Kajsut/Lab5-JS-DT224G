@@ -68,6 +68,11 @@ function validateForm(event) {
     // Visa eventuella felmeddelanden
    displayErrors()
 
+   //skriver på studentkortet om allt stämmer
+   if (validate){
+    createStudentCard(name, email, phone);
+   }
+   
     // Returnera resultatet (true eller false) av valideringen
     return validate;
 }
@@ -98,8 +103,11 @@ function createStudentCard(name, email, phone) {
     // Hämta information från formuläret
     const font = fontSelect.value;
 
-    // Uppdatera studentkortet
-
+    // Uppdatera studentkortet 
+    previewFullname.textContent = name;
+    previewEmail.textContent = email;
+    previewPhone.textContent = phone;
+    
     // Lägg till studentkortet i historiken
 
     // Spara och uppdatera historiken
