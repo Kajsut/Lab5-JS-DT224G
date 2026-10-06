@@ -28,7 +28,7 @@ let errors = [];
 // Array som innehåller sparade studentkort
 let history = [];
 
-//Reagrar på skickaknappen
+//Reagrar på studentkort-knappen
 form.addEventListener("submit", validateForm)
 
 /**
@@ -36,11 +36,29 @@ form.addEventListener("submit", validateForm)
  * @returns {boolean}
  */
 function validateForm(event) {
-    event.preventDefault(); // Förhindra att formuläret skickas
-    alert("Validerar formulär...");
+    // Förhindra att formuläret skickas
+    event.preventDefault();
+
+    //Läser in värden från formuläret
+    const name = fullnameInput.value.trim();
+    const email = emailInput.value.trim();
+    const phone = phoneInput.value.trim();
+
     // Kontrollera formulärets obligatoriska fält
+    if (name === "") {
+        errors.push("Ange ett namn")
+    }
+
+    if (email === ""){
+        errors.push("Ange en epostadress")
+    }
+
+    if (phone === ""){
+        errors.push("Ange ett telefonnummer")
+    }
 
     // Visa eventuella felmeddelanden
+    
 
     // Returnera resultatet (true eller false) av valideringen
 }
