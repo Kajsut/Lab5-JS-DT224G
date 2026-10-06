@@ -72,7 +72,7 @@ function validateForm(event) {
    if (validate){
     createStudentCard(name, email, phone);
    }
-   
+
     // Returnera resultatet (true eller false) av valideringen
     return validate;
 }
@@ -104,10 +104,14 @@ function createStudentCard(name, email, phone) {
     const font = fontSelect.value;
 
     // Uppdatera studentkortet 
-    previewFullname.textContent = name;
-    previewEmail.textContent = email;
-    previewPhone.textContent = phone;
     
+    previewFullname.textContent = name;
+    previewFullname.style.fontFamily = font;
+    previewEmail.textContent = email;
+    previewEmail.style.fontFamily = font;
+    previewPhone.textContent = phone;
+    previewPhone.style.fontFamily = font;
+
     // Lägg till studentkortet i historiken
 
     // Spara och uppdatera historiken
