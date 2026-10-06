@@ -40,7 +40,8 @@ function validateForm(event) {
     //Variabel som håller koll på eventuella fel
     let validate = true;    
     
-    displayErrors()
+    //Tömmer arrayen
+    errors = [];
     
     //Läser in värden från formuläret
     const name = fullnameInput.value.trim();
@@ -55,7 +56,7 @@ function validateForm(event) {
     }
 
     if (email === ""){
-        errors.push("Ange en epostadress")
+        errors.push("Ange en e-postadress")
         validate = false;
     }
 
@@ -65,13 +66,7 @@ function validateForm(event) {
     }
 
     // Visa eventuella felmeddelanden
-    if (errors.length > 0){
-        for(let i = 0; i < errors.length; i++){
-            const liEl = document.createElement("li");
-            liEl.innerHTML = errors[i];
-            errorList.appendChild(liEl);
-        }
-    }
+   displayErrors()
 
     // Returnera resultatet (true eller false) av valideringen
     return validate;
@@ -83,9 +78,16 @@ function validateForm(event) {
  */
 function displayErrors() {
     // Rensa tidigare felmeddelanden
-    errors = []
     errorList.innerHTML ="";
+
     // Skriv ut aktuella felmeddelanden till DOM
+    if (errors.length > 0){
+        for(let i = 0; i < errors.length; i++){
+            const liEl = document.createElement("li");
+            liEl.innerHTML = errors[i];
+            errorList.appendChild(liEl);
+        }
+    }
 }
 
 
