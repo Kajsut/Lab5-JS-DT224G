@@ -104,7 +104,6 @@ function createStudentCard(name, email, phone) {
     const font = fontSelect.value;
 
     // Uppdatera studentkortet 
-    
     previewFullname.textContent = name;
     previewFullname.style.fontFamily = font;
     previewEmail.textContent = email;
@@ -113,8 +112,17 @@ function createStudentCard(name, email, phone) {
     previewPhone.style.fontFamily = font;
 
     // Lägg till studentkortet i historiken
+    historySection.innerHTML =`Namn: ${name} <br>Email: ${email} <br>Telefon: ${phone} <br>Font: ${font}`
 
     // Spara och uppdatera historiken
+    const studentCard = {
+        name: name,
+        email: email,
+        phone: phone,
+        font: font
+    }
+
+    history.unshift(studentcard)
 }
 
 
