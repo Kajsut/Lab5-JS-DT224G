@@ -79,6 +79,7 @@ function validateForm(event) {
     }
 
     // Returnera resultatet (true eller false) av valideringen
+    return validate;
 }
 
 
