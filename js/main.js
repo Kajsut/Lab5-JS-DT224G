@@ -29,9 +29,6 @@ let errors = [];
 // Array som innehåller sparade studentkort
 let history = [];
 
-//Reagrar på studentkort-knappen
-form.addEventListener("submit", validateForm)
-
 /**
  * Validerar formulärets inmatning.
  * @returns {boolean}
@@ -41,12 +38,10 @@ function validateForm(event) {
     event.preventDefault();
 
     //Variabel som håller koll på eventuella fel
-    let validate = true;
+    let validate = true;    
     
-    //Rensar gmla felmeddelanden
-    errors = []
-    errorList.innerHTML ="";
-
+    displayErrors()
+    
     //Läser in värden från formuläret
     const name = fullnameInput.value.trim();
     const email = emailInput.value.trim();
@@ -88,7 +83,8 @@ function validateForm(event) {
  */
 function displayErrors() {
     // Rensa tidigare felmeddelanden
-
+    errors = []
+    errorList.innerHTML ="";
     // Skriv ut aktuella felmeddelanden till DOM
 }
 
@@ -156,6 +152,9 @@ function deleteHistory() {
 
 
 // Eventlyssnare
+//Reagrar på studentkort-knappen
+form.addEventListener("submit", validateForm)
+
 
 // När formuläret skickas:
 // - validera inmatningen
