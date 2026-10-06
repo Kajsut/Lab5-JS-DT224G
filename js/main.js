@@ -112,7 +112,7 @@ function createStudentCard(name, email, phone) {
     previewPhone.style.fontFamily = font;
 
     // Lägg till studentkortet i historiken
-    historySection.innerHTML =`Namn: ${name} <br>Email: ${email} <br>Telefon: ${phone} <br>Font: ${font}`
+    historySection.innerHTML =`Namn: ${name} <br>Email: ${email} <br>Telefon: ${phone} <br>Font: ${font}`;
 
     // Spara och uppdatera historiken
     const studentCard = {
@@ -122,7 +122,7 @@ function createStudentCard(name, email, phone) {
         font: font
     }
 
-    history.unshift(studentcard)
+    history.unshift(studentCard);
 }
 
 
