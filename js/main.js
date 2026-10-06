@@ -123,6 +123,7 @@ function createStudentCard(name, email, phone) {
     }
 
     history.unshift(studentCard);
+    saveHistory();
 }
 
 
@@ -131,6 +132,8 @@ function createStudentCard(name, email, phone) {
  */
 function saveHistory() {
     // Spara history i localStorage
+    const studentCardJson = JSON.stringify(history);
+    localStorage.setItem("studentHistory", studentCardJson);
 }
 
 
