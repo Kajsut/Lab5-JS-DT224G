@@ -21,6 +21,7 @@ const errorList = document.querySelector("#errorlist");
 const historySection = document.querySelector("#history");
 const deleteHistoryButton = document.querySelector("#delete");
 
+const errorsEl = document.createElement("ul");
 
 // Array som används för felmeddelanden
 let errors = [];
@@ -39,26 +40,43 @@ function validateForm(event) {
     // Förhindra att formuläret skickas
     event.preventDefault();
 
+    //Variabel som håller koll på eventuella fel
+    let validate = true;
+
     //Läser in värden från formuläret
     const name = fullnameInput.value.trim();
     const email = emailInput.value.trim();
     const phone = phoneInput.value.trim();
 
+
     // Kontrollera formulärets obligatoriska fält
     if (name === "") {
         errors.push("Ange ett namn")
+        validate = false;
     }
 
     if (email === ""){
         errors.push("Ange en epostadress")
+        validate = false;
     }
 
     if (phone === ""){
         errors.push("Ange ett telefonnummer")
+        validate = false;
     }
+console.log(errors.length);
 
+    //Rensar gamla felmeddelanden
+    errorsEl.innerHTML ="";
     // Visa eventuella felmeddelanden
-    
+    if (errors.length > 0){
+        for(let i = 0; i < errors.length; i++){
+            const liEl = document.createElement("li");
+            liEl.innerHTML = errors[i];
+            errorsEl.appendChild(liEl)
+
+        }
+    }
 
     // Returnera resultatet (true eller false) av valideringen
 }
