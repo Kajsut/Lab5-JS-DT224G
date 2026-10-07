@@ -51,17 +51,17 @@ function validateForm(event) {
 
     // Kontrollera formulärets obligatoriska fält
     if (name === "") {
-        errors.push("Ange ett namn")
+        errors.push("Ange ett namn");
         validate = false;
     }
 
     if (email === ""){
-        errors.push("Ange en e-postadress")
+        errors.push("Ange en e-postadress");
         validate = false;
     }
 
     if (phone === ""){
-        errors.push("Ange ett telefonnummer")
+        errors.push("Ange ett telefonnummer");
         validate = false;
     }
 
@@ -112,19 +112,17 @@ function createStudentCard(name, email, phone) {
     previewPhone.style.fontFamily = font;
 
     // Lägg till studentkortet i historiken
-    historySection.innerHTML =`Namn: ${name} <br>Email: ${email} <br>Telefon: ${phone} <br>Font: ${font}`;
-
-    // Spara och uppdatera historiken
     const studentCard = {
         name: name,
         email: email,
         phone: phone,
         font: font
-    }
+    };
 
+    // Spara och uppdatera historiken
     history.unshift(studentCard);
     saveHistory();
-    renderHistory();        //Visar history på hemsidan
+    renderHistory();
 
 }
 
@@ -146,11 +144,11 @@ function loadHistory() {
     // Hämta eventuell sparad historik
     const localStorageData = localStorage.getItem("studentHistory");
 
+    // Uppdatera history
     if(localStorageData !== null){
         history = JSON.parse(localStorageData);
     }
 
-    // Uppdatera history
 }
 
 
@@ -168,26 +166,26 @@ function renderHistory() {
             return;
         } 
 
-        history.forEach(function (studentCard) {
-            const articleEl = document.createElement("article");
-            const name = document.createElement("p");
-            const email = document.createElement("p");
-            const phone = document.createElement("p");
-            const font = document.createElement("p");
+    history.forEach(function (studentCard) {
+        const articleEl = document.createElement("article");
+        const name = document.createElement("p");
+        const email = document.createElement("p");
+        const phone = document.createElement("p");
+        const font = document.createElement("p");
 
-            name.textContent = studentCard.name;
-            email.textContent = studentCard.email;
-            phone.textContent = studentCard.phone;
-            font.textContent = studentCard.font;
+        name.textContent = studentCard.name;
+        email.textContent = studentCard.email;
+        phone.textContent = studentCard.phone;
+        font.textContent = studentCard.font;
 
-            const pEl = document.createElement("p");
-            pEl.innerHTML = ` Namn: ${name.textContent} <br> E-post: ${email.textContent} <br> Telefon: ${phone.textContent} <br> Font: ${font.textContent}`;
-            pEl.style.border = "2px solid #ccc";
-            pEl.style.padding = "3px";
+        const pEl = document.createElement("p");
+        pEl.innerHTML = ` Namn: ${name.textContent} <br> E-post: ${email.textContent} <br> Telefon: ${phone.textContent} <br> Font: ${font.textContent}`;
+        pEl.style.border = "2px solid #ccc";
+        pEl.style.padding = "3px";
 
-            historySection.appendChild(articleEl);
-            articleEl.appendChild(pEl);
-        });
+        historySection.appendChild(articleEl);
+        articleEl.appendChild(pEl);
+    });
     
 }
 
@@ -198,6 +196,7 @@ function renderHistory() {
 function clearForm() {
     // Återställ formulär
     form.reset();
+
     // Rensa eventuella felmeddelanden
     errors = [];
     displayErrors();
@@ -217,24 +216,21 @@ function deleteHistory() {
 }
 
 
+
 // Eventlyssnare
-//Reagrar på studentkort-knappen
-form.addEventListener("submit", validateForm);
-clearButton.addEventListener("click", clearForm);
-deleteHistoryButton.addEventListener("click", deleteHistory);
 
 // När formuläret skickas:
 // - validera inmatningen
 // - skapa studentkort om valideringen lyckas
-
+form.addEventListener("submit", validateForm);
 
 // När användaren klickar på "Rensa"
-
+clearButton.addEventListener("click", clearForm);
 
 // När användaren klickar på "Radera historik"
-
+deleteHistoryButton.addEventListener("click", deleteHistory);
 
 // När sidan laddas:
 // - läs in och visa eventuell tidigare historik
-loadHistory()
-renderHistory()
+loadHistory();
+renderHistory();
