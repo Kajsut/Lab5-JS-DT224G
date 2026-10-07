@@ -160,7 +160,7 @@ function loadHistory() {
 function renderHistory() {
     // Rensa tidigare visad historik
     historySection.innerHTML ="";
-console.log(history);
+
     // Skriv ut innehållet i history till DOM
 
     //kollar om det finns några kort sedan innan
@@ -180,12 +180,11 @@ console.log(history);
             phone.textContent = studentCard.phone;
             font.textContent = studentCard.font;
 
+            const pEl = document.createElement("p");
+            pEl.innerHTML = `Namn: ${name.textContent} <br>E-post: ${email.textContent} <br>Telefon: ${phone.textContent} <br>Font: ${font.textContent}`;
 
-            articleEl.appendChild(name);
-            articleEl.appendChild(email);
-            articleEl.appendChild(phone);
-            articleEl.appendChild(font);
             historySection.appendChild(articleEl);
+            articleEl.appendChild(pEl);
         });
     
 }
