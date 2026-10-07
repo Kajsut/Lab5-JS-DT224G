@@ -163,10 +163,10 @@ function renderHistory() {
 
     // Skriv ut innehållet i history till DOM
 
-    //kollar om det finns några kort sedan innan
-    if (history.length === 0){
-        return;
-    } 
+        //kollar om det finns några kort sedan innan
+        if (history.length === 0){
+            return;
+        } 
 
         history.forEach(function (studentCard) {
             const articleEl = document.createElement("article");
@@ -181,7 +181,9 @@ function renderHistory() {
             font.textContent = studentCard.font;
 
             const pEl = document.createElement("p");
-            pEl.innerHTML = `Namn: ${name.textContent} <br>E-post: ${email.textContent} <br>Telefon: ${phone.textContent} <br>Font: ${font.textContent}`;
+            pEl.innerHTML = ` Namn: ${name.textContent} <br> E-post: ${email.textContent} <br> Telefon: ${phone.textContent} <br> Font: ${font.textContent}`;
+            pEl.style.border = "2px solid #ccc";
+            pEl.style.padding = "3px";
 
             historySection.appendChild(articleEl);
             articleEl.appendChild(pEl);
