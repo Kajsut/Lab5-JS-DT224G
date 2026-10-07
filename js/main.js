@@ -216,8 +216,9 @@ function deleteHistory() {
 
 // Eventlyssnare
 //Reagrar på studentkort-knappen
-form.addEventListener("submit", validateForm)
-clearButton.addEventListener("click", clearForm)
+form.addEventListener("submit", validateForm);
+clearButton.addEventListener("click", clearForm);
+deleteHistoryButton.addEventListener("click", deleteHistory);
 
 // När formuläret skickas:
 // - validera inmatningen
