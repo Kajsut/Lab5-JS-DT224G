@@ -51,17 +51,17 @@ function validateForm(event) {
 
     // Kontrollera formulärets obligatoriska fält
     if (name === "") {
-        errors.push("Ange ett namn");
+        errors.push("Du måste ange ett namn");
         validate = false;
     }
 
     if (email === ""){
-        errors.push("Ange en e-postadress");
+        errors.push("Du måste ange en e-postadress");
         validate = false;
     }
 
     if (phone === ""){
-        errors.push("Ange ett telefonnummer");
+        errors.push("Du måste ange ett telefonnummer");
         validate = false;
     }
 
