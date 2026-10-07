@@ -166,20 +166,26 @@ function renderHistory() {
             return;
         } 
 
+        
     history.forEach(function (studentCard) {
+        //Skapar element för de olika informationsdelarna
         const articleEl = document.createElement("article");
         const name = document.createElement("p");
         const email = document.createElement("p");
         const phone = document.createElement("p");
         const font = document.createElement("p");
 
+        //Hämtar information från studentkortet och lägger det i element
         name.textContent = studentCard.name;
         email.textContent = studentCard.email;
         phone.textContent = studentCard.phone;
         font.textContent = studentCard.font;
 
+        //Skriver ut texten till DOM
         const pEl = document.createElement("p");
         pEl.innerHTML = ` Namn: ${name.textContent} <br> E-post: ${email.textContent} <br> Telefon: ${phone.textContent} <br> Font: ${font.textContent}`;
+        
+        //Gör en grå ram runt varje historikkort
         pEl.style.border = "2px solid #ccc";
         pEl.style.padding = "3px";
 
@@ -217,7 +223,7 @@ function deleteHistory() {
 
 
 
-// Eventlyssnare
+// Eventlyssnare ↓
 
 // När formuläret skickas:
 // - validera inmatningen
