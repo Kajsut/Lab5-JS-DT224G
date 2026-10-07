@@ -124,6 +124,8 @@ function createStudentCard(name, email, phone) {
 
     history.unshift(studentCard);
     saveHistory();
+    renderHistory();        //Visar history på hemsidan
+
 }
 
 
@@ -160,13 +162,19 @@ function renderHistory() {
     historySection.innerHTML ="";
 
     // Skriv ut innehållet i history till DOM
-    if (studentCard === 0){
+    if (history.length === 0){
         return;
-    } else {
+    } //else {
         history.forEach(function (studentCard) {
-            
+            const article = document.createElement("article");
+            const name = document.createElement("p");
+
+            name.textContent = studentCard.name;
+
+            article.appendChild(name);
+            historySection.appendChild(article);
         });
-    }
+   // }
 }
 
 
@@ -208,3 +216,5 @@ form.addEventListener("submit", validateForm)
 
 // När sidan laddas:
 // - läs in och visa eventuell tidigare historik
+loadHistory()
+renderHistory()
