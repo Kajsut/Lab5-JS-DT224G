@@ -66,7 +66,7 @@ function validateForm(event) {
     }
 
     // Visa eventuella felmeddelanden
-   displayErrors()
+   displayErrors();
 
    //skriver på studentkortet om allt stämmer
    if (validate){
@@ -197,8 +197,10 @@ function renderHistory() {
  */
 function clearForm() {
     // Återställ formulär
-    
+    form.reset();
     // Rensa eventuella felmeddelanden
+    errors = [];
+    displayErrors();
 }
 
 
