@@ -157,8 +157,16 @@ function loadHistory() {
  */
 function renderHistory() {
     // Rensa tidigare visad historik
+    historySection.innerHTML ="";
 
     // Skriv ut innehållet i history till DOM
+    if (studentCard === 0){
+        return;
+    } else {
+        history.forEach(function (studentCard) {
+            
+        });
+    }
 }
 
 
