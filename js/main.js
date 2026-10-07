@@ -160,21 +160,34 @@ function loadHistory() {
 function renderHistory() {
     // Rensa tidigare visad historik
     historySection.innerHTML ="";
-
+console.log(history);
     // Skriv ut innehållet i history till DOM
+
+    //kollar om det finns några kort sedan innan
     if (history.length === 0){
         return;
-    } //else {
+    } 
+
         history.forEach(function (studentCard) {
-            const article = document.createElement("article");
+            const articleEl = document.createElement("article");
             const name = document.createElement("p");
+            const email = document.createElement("p");
+            const phone = document.createElement("p");
+            const font = document.createElement("p");
 
             name.textContent = studentCard.name;
+            email.textContent = studentCard.email;
+            phone.textContent = studentCard.phone;
+            font.textContent = studentCard.font;
 
-            article.appendChild(name);
-            historySection.appendChild(article);
+
+            articleEl.appendChild(name);
+            articleEl.appendChild(email);
+            articleEl.appendChild(phone);
+            articleEl.appendChild(font);
+            historySection.appendChild(articleEl);
         });
-   // }
+    
 }
 
 
