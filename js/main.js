@@ -196,8 +196,8 @@ function renderHistory() {
  * Rensar formulär, aktuellt studentkort och felmeddelanden.
  */
 function clearForm() {
-    // Återställ formulär och studentkort
-
+    // Återställ formulär
+    
     // Rensa eventuella felmeddelanden
 }
 
@@ -215,7 +215,7 @@ function deleteHistory() {
 // Eventlyssnare
 //Reagrar på studentkort-knappen
 form.addEventListener("submit", validateForm)
-
+clearButton.addEventListener("click", clearForm)
 
 // När formuläret skickas:
 // - validera inmatningen
